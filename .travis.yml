@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: AU+U3cnzcMql8/fakmFNo7D6V0xLuiAZPM1tJduQ40XjO6FDwX5rFm0hyp5xwBdG7yLeq62VIpdoSOPH4RO1IK498VNvpz4CetQFcB4umdNdq7eMtt0SUfdpagu1LrFqy9orjUVzIXPjPgRZJ5mQTgdHlS0Ta3XDlLdUHAKJM1IFsb1MSumRWREPwyCr5ryaVg9o6jM3dL9SGQYt+RjvzTV/E6IaJdHLfZsDq20yzUEcyeRyU0n5Fj1PV8qO1mwSuxrli1324s5JkNWsZlu65i5jF5EFxlfr7PaPTdZJl5LEFshIopKPkspvaRCbfvP5tYrwAEbjXGrbSxYI/2g3eQFJCv44shB4097nfzPC2z1U0WK9vFS2iGJ+/RdHM6m/7r02hT5I9fsRcfaoFvZy1ejBNHzK8q0qPJ/nL68amIakQLkE03So0QZYTq36aekVpo1aLHYRYUyQ7Dlq/4+L8oALDzvswLIE18Utc8AGO0f228BkIRTuiZvWDBO0NpzZmDYE3MBgAsxuaz1FCIKZtb3dP8VwhwKNZHmyWPajhp6CJAtdcoSTczKEaHrCVCD2K7pZySyHA7/e/M7AJFG1RvW780441GEFlLO6fJCP0WaMg5LmASPhR7P1QldlNRqAkJQvuGMe6qdg52OOCTlZhctrVYk/zVldvamnjJxAmM8=
+  app: obscure-earth-73687
+  on:
+    repo: pepke41/peepchat_api
